@@ -1,0 +1,114 @@
+/* to add animation to element add to it  */
+.rocket {
+  /* animation-name: item-stay-move;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out; */
+  animation: item-stay-move 2s infinite ease-in-out;
+}
+/* since transform */
+.r1 {
+  animation: rocket-tocb 2s 19s ease-in-out forwards;
+}
+/* rocketmove-cody 2s 6s ease-in-out forwards,
+    cody-onboards 2s 17s ease-in-out forwards pe lagaenge img pe individually chorke  */
+.cody {
+  animation: item-stay-move 2s infinite ease-in-out,
+    move-cody 2s 6s ease-in-out forwards,
+    cody-onboards 2s 17s ease-in-out forwards;
+  /*cody 2s ke delay se aaega,and it disappears therefore to want cody to stay forwards used */
+  /* conv ends after 16 s iske baad wo rocket ke andar jaega  */
+}
+body {
+  animation: background-move 6s ease-in-out;
+  /* last frame is retained does not change */
+  animation-fill-mode: forwards;
+}
+/* background move kraenge not rocket,ulta bhi krskte hai  */
+@keyframes background-move {
+  0% {
+    background-position: 100px 10%;
+  }
+  100% {
+    background-position: -500px 10%;
+    /* agar +30 lagega rocket upr jara planet neeche */
+    /* -50 mai opp  */
+  }
+}
+@keyframes item-stay-move {
+  /* to move rocket up down */
+  /* no movement initially */
+  /* 0% {
+    transform: translateY(0px);
+  } */
+  50% {
+    transform: translateY(-20px);
+    /* transform: rotateZ(30deg); */
+  }
+  /* 100% {
+    transform: translateY(0);
+  } */
+}
+/* to move cody out-rocket ke pas leke aana ho -left property should be changed */
+@keyframes move-cody {
+  /* initially wo bahar hi rahega */
+  0% {
+    left: -30%;
+  }
+  /* at 100% usko scene mai laaenge  */
+  100% {
+    left: 15%;
+  }
+}
+/* thodi delay kebaad conv1 aaega,cody 6s pe aara with 2 s delay therefore at 8th second ke baad hi conv1 hogi  */
+.conv1 {
+  animation: conversation 2s 8s ease-in-out,
+    item-stay-move 2s infinite ease-in-out;
+}
+.conv2 {
+  animation: conversation 2s 10s ease-in-out,
+    item-stay-move 2s infinite ease-in-out;
+}
+.conv3 {
+  animation: conversation 2s 12s ease-in-out,
+    item-stay-move 2s infinite ease-in-out;
+}
+.conv4 {
+  animation: conversation 2s 14s ease-in-out,
+    item-stay-move 2s infinite ease-in-out;
+}
+
+@keyframes conversation {
+  /* initially kuch na ho  */
+  0% {
+    opacity: 0;
+  }
+  40%,
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* make cody enter the rocket now-move krao towards rocket and make it opaque */
+@keyframes cody-onboards {
+  0% {
+    /* wahi rahe  */
+    left: 15%;
+  }
+  100% {
+    left: 55%;
+    opacity: 0;
+  }
+}
+
+@keyframes rocket-tocb {
+  20% {
+    transform: rotateZ(-45deg);
+  }
+  100% {
+    top: -1000px;
+  }
+}
